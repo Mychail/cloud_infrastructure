@@ -43,11 +43,11 @@ resource "aws_iam_access_key" "airflow-accesskey" {
 resource "aws_ssm_parameter" "airflow-access-key" {
   name  = "/cypha-airflow/access-key"
   type  = "String"
-  value = "aws_iam_access_key.airflow-accesskey.id"
+  value = aws_iam_access_key.airflow-accesskey.id
 }
 
 resource "aws_ssm_parameter" "airflow-secret-key" {
   name  = "/cypha-airflow/secret-access-key"
   type  = "String"
-  value = "aws_iam_access_key.airflow-accesskey.secret"
+  value = aws_iam_access_key.airflow-accesskey.secret
 }
