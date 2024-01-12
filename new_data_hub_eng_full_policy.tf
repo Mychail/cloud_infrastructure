@@ -56,6 +56,15 @@ resource "aws_iam_policy" "data_eng_full_access_policy" {
         Effect   = "Allow"
         Resource = "*"
       },
+      # adding access to glue
+      {
+        Action = [
+          "glue:*Database*",
+          "glue:*Get*"
+        ],
+        Effect = "Allow"
+        Resource = "*"
+      }
     ]
   })
 }
